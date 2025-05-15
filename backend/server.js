@@ -9,7 +9,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-  origin: true
+  origin: ["https://6825bd7e9d05b88f22c1a2e2--tubular-hamster-01ecea.netlify.app"],
 }));
 app.use(express.json());
 
