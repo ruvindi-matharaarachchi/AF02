@@ -11,8 +11,7 @@ const app = express();
 app.use(cors({
   origin: function (origin, callback) {
     const allowedOrigins = [
-      "http://localhost:3000",
-      "https://6825bd7e9d05b88f22c1a2e2--tubular-hamster-01ecea.netlify.app"
+      "https://6825db69f9d997b0aa782caa--celebrated-axolotl-e5cc01.netlify.app"
     ];
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
