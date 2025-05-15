@@ -11,7 +11,7 @@ function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/auth/register", { username, password });
+      await axios.post("https://af02.onrender.com/api/auth/register", { username, password });
       setMessage(" Registration successful! Redirecting...");
       setTimeout(() => navigate("/login"), 2000);
     } catch (err) {
