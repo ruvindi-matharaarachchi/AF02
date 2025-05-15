@@ -9,7 +9,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-  origin: ["https://af02-frontend.netlify.app"],
+  origin: true
 }));
 app.use(express.json());
 
