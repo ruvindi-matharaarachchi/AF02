@@ -9,8 +9,21 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-  origin: ["https://6825bd7e9d05b88f22c1a2e2--tubular-hamster-01ecea.netlify.app"],
+  origin: function (origin, callback) {
+    const allowedOrigins = [
+      "http://localhost:3000",
+      "https://6825bd7e9d05b88f22c1a2e2--tubular-hamster-01ecea.netlify.app"
+    ];
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
 }));
+
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
