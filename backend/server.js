@@ -11,7 +11,8 @@ const app = express();
 app.use(cors({
   origin: function (origin, callback) {
     const allowedOrigins = [
-      "https://6825db69f9d997b0aa782caa--celebrated-axolotl-e5cc01.netlify.app"
+      "http://localhost:3000",
+      "https://celebrated-axolotl-e5cc01.netlify.app"
     ];
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
@@ -19,9 +20,13 @@ app.use(cors({
       callback(new Error("Not allowed by CORS"));
     }
   },
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   credentials: true
 }));
+
+// Handle preflight requests explicitly (optional but safe)
+app.options('*', cors());
+
 
 app.use(express.json());
 
