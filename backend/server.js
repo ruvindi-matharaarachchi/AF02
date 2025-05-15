@@ -9,18 +9,12 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-  origin: function (origin, callback) {
-    const allowedOrigins = [
-      "http://localhost:3000",
-      "https://celebrated-axolotl-e5cc01.netlify.app"
-    ];
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  origin:
+
+      "https://6825df6ef9d997b9b6782f7d--remarkable-gecko-91f84a.netlify.app/",
+    
+
+  methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
 
@@ -42,3 +36,4 @@ mongoose.connect(process.env.MONGO_URI)
   .catch(err => {
     console.error("MongoDB error:", err);
   });
+module.exports=app;
